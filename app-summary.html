@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manifest all in one - Meditation, Diary, Calendar, Sleep, Breath exercise </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #1d1d1f;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .intro h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+        
+        .intro p {
+            font-size: 1.1em;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: #f5f5f7;
+            border-radius: 15px;
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #1d1d1f;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            color: #666;
+        }
+        
+        .feature-list li:before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 40px;
+            margin-top: 50px;
+            border-radius: 15px;
+        }
+        
+        .cta-section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .download-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .download-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .highlight-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+        
+        .highlight-section h2 {
+            color: #1d1d1f;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .highlight-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .highlight-item .emoji {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .highlight-item h4 {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            color: #1d1d1f;
+        }
+        
+        .highlight-item p {
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            header p {
+                font-size: 1em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌙 Manifest all in one</h1>
+            <p>Your Complete Wellness Companion with AI/SI</p>
+        </header>
+        
+        <div class="content">
+            <div class="intro">
+                <h2>Transform Your Life & Wellness Journey</h2>
+                <p>SManifest all in one is your all-in-one wellness app that helps you achieve better life, reduce stress, and maintain healthy habits through advanced tracking, mindfulness tools, personalized insights, and super intelligence.</p>
+            </div>
+            
+            <div class="features-grid">
+                <!-- Feature 1: Sleep Tracking -->
+                <div class="feature-card">
+                    <div class="feature-icon">🛏️</div>
+                    <h3>Advanced Sleep Tracking</h3>
+                    <p>Monitor your sleep with precision using device sensors that track movement and ambient sound.</p>
+                    <ul class="feature-list">
+                        <li>Automatic sleep stage detection</li>
+                        <li>Movement & sound analysis</li>
+                        <li>Sleep quality scoring</li>
+                        <li>Detailed sleep reports</li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 2: Smart Alarms -->
+                <div class="feature-card">
+                    <div class="feature-icon">⏰</div>
+                    <h3>Smart Alarm System</h3>
+                    <p>Wake up refreshed with intelligent alarms that find your optimal wake-up time.</p>
+                    <ul class="feature-list">
+                        <li>Optimal wake-up timing</li>
+                        <li>Gentle wake progression</li>
+                        <li>Light sleep detection</li>
+                        <li>Customizable alarm window</li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 3: Meditation -->
+                <div class="feature-card">
+                    <div class="feature-icon">🧘</div>
+                    <h3>Guided Meditation</h3>
+                    <p>Reduce stress and improve sleep quality with guided meditation sessions.</p>
+                    <ul class="feature-list">
+                        <li>Multiple meditation themes</li>
+                        <li>Customizable durations</li>
+                        <li>Soothing background sounds</li>
+                        <li>Progress tracking</li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 4: Breathing Exercises -->
+                <div class="feature-card">
+                    <div class="feature-icon">🫁</div>
+                    <h3>Breathing Exercises</h3>
+                    <p>Calm your mind and prepare for sleep with scientifically-backed breathing techniques.</p>
+                    <ul class="feature-list">
+                        <li>Visual breathing guides</li>
+                        <li>Multiple breathing patterns</li>
+                        <li>Relaxation techniques</li>
+                        <li>Pre-sleep routines</li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 5: Personal Journal -->
+                <div class="feature-card">
+                    <div class="feature-icon">📖</div>
+                    <h3>Personal Journal</h3>
+                    <p>Track your thoughts, mood, and daily experiences to identify patterns affecting your sleep.</p>
+                    <ul class="feature-list">
+                        <li>Daily journaling</li>
+                        <li>Mood tracking</li>
+                        <li>Secure & private</li>
+                        <li>Cloud sync across devices</li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 6: Daily Checklist -->
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <h3>Daily Checklist</h3>
+                    <p>Stay on top of your wellness routine with customizable daily tasks and reminders.</p>
+                    <ul class="feature-list">
+                        <li>Custom task creation</li>
+                        <li>Reminder notifications</li>
+                        <li>Progress tracking</li>
+                        <li>Habit building</li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 7: Calendar Integration -->
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3>Wellness Calendar</h3>
+                    <p>Schedule and track your wellness activities with an integrated calendar system.</p>
+                    <ul class="feature-list">
+                        <li>Event scheduling</li>
+                        <li>Activity reminders</li>
+                        <li>Visual timeline</li>
+                        <li>Sync with notifications</li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 8: Health Integration -->
+                <div class="feature-card">
+                    <div class="feature-icon">❤️</div>
+                    <h3>Apple Health Integration</h3>
+                    <p>Seamlessly sync your sleep data with Apple Health for a complete health picture.</p>
+                    <ul class="feature-list">
+                        <li>Automatic data sync</li>
+                        <li>Read & write sleep data</li>
+                        <li>Privacy-focused</li>
+                        <li>Complete health ecosystem</li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 9: Analytics & Trends -->
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Detailed Analytics</h3>
+                    <p>Understand your sleep patterns with comprehensive charts and long-term trend analysis.</p>
+                    <ul class="feature-list">
+                        <li>7/14/30 day trends</li>
+                        <li>Beautiful visualizations</li>
+                        <li>Sleep stage distribution</li>
+                        <li>Quality metrics</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="highlight-section">
+                <h2>Why Choose Manifest all in one?</h2>
+                <div class="highlight-grid">
+                    <div class="highlight-item">
+                        <div class="emoji">🔒</div>
+                        <h4>Privacy First</h4>
+                        <p>All processing happens on your device. Your data never leaves your control.</p>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="emoji">☁️</div>
+                        <h4>iCloud Sync</h4>
+                        <p>Your data seamlessly syncs across all your Apple devices.</p>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="emoji">🎨</div>
+                        <h4>Beautiful Design</h4>
+                        <p>Intuitive interface designed with Apple's Human Interface Guidelines.</p>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="emoji">🚀</div>
+                        <h4>Modern Technology</h4>
+                        <p>Built with the latest iOS technologies for optimal performance.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <h2>Start Your Journey to Better Life</h2>
+                <p>Join thousands of users who have improved their life and overall wellness.</p>
+                <a href="https://apps.apple.com/us/iphone/search?term=John%20Xu" class="download-button">Download on the App Store</a>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2026 Manifest all in one. All rights reserved.</p>
+            <p style="margin-top: 10px;">
+                <a href="privacy.html" style="color: #667eea; text-decoration: none;">Privacy Policy</a> | 
+                <a href="#" style="color: #667eea; text-decoration: none;">Terms of Service</a> | 
+                <a href="#" style="color: #667eea; text-decoration: none;">Contact Support</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
